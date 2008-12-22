@@ -110,6 +110,11 @@
 	return flags > 0;
 }
 
+- (BOOL) isFeatureEnabled:(NSString *)feature
+{
+	return YES;
+}
+
 #pragma mark Using async function from JS
 
 - (void) runCommand:(WebScriptObject *)arguments inRepository:(PBGitRepository *)repo callBack:(WebScriptObject *)callBack
