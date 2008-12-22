@@ -188,6 +188,15 @@ var showImage = function(element, filename)
 	return false;
 }
 
+var enableFeature = function(feature, element)
+{
+	if(!Controller || Controller.isFeatureEnabled_(feature)) {
+		element.style.display = "";
+	} else {
+		element.style.display = "none";
+	}
+}
+
 var loadExtendedCommit = function(commit)
 {
 	if (commit.author_email)
