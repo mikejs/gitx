@@ -13,6 +13,10 @@
 
 #include <SystemConfiguration/SCNetworkReachability.h>
 
+@interface PBWebController()
+- (void)preferencesChangedWithNotification:(NSNotification *)theNotification;
+@end
+
 @implementation PBWebController
 
 @synthesize startFile, repository;
@@ -24,6 +28,12 @@
 	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:file]];
 	callbacks = [NSMapTable mapTableWithKeyOptions:(NSPointerFunctionsObjectPointerPersonality|NSPointerFunctionsStrongMemory) valueOptions:(NSPointerFunctionsObjectPointerPersonality|NSPointerFunctionsStrongMemory)];
 
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self
+	       selector:@selector(preferencesChangedWithNotification:)
+		   name:NSUserDefaultsDidChangeNotification
+		 object:nil];
+	
 	finishedLoading = NO;
 	[view setUIDelegate:self];
 	[view setFrameLoadDelegate:self];
@@ -177,6 +187,16 @@
 {
 	NSString *data = [[NSString alloc] initWithData:[[notification userInfo] valueForKey:NSFileHandleNotificationDataItem] encoding:NSUTF8StringEncoding];
 	[self returnCallBackForObject:[notification object] withData:data];
+}
+
+- (void) preferencesChanged
+{
+	[[self script] evaluateWebScript:@"if (preferencesChanged) preferencesChanged();"];
+}
+
+- (void)preferencesChangedWithNotification:(NSNotification *)theNotification
+{
+	[self preferencesChanged];
 }
 
 @end
