@@ -9,6 +9,7 @@
 #import "PBWebController.h"
 #import "PBGitRepository.h"
 #import "PBGitXProtocol.h"
+#import "PBGitDefaults.h"
 
 #include <SystemConfiguration/SCNetworkReachability.h>
 
@@ -112,7 +113,12 @@
 
 - (BOOL) isFeatureEnabled:(NSString *)feature
 {
-	return YES;
+	if([feature isEqualToString:@"gravatar"])
+		return [PBGitDefaults isGravatarEnabled];
+	else if([feature isEqualToString:@"gist"])
+		return [PBGitDefaults isGistEnabled];
+	else
+		return YES;
 }
 
 #pragma mark Using async function from JS
