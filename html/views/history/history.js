@@ -97,6 +97,11 @@ var setGravatar = function(email, image) {
 	if (Controller && !Controller.isReachable_("www.gravatar.com"))
 		return;
 
+	if(Controller && !Controller.isFeatureEnabled_("gravatar")) {
+		image.src = "";
+		return;
+	}
+
 	if (!email) {
 		image.src = "http://www.gravatar.com/avatar/?d=wavatar&s=60";
 		return;
@@ -197,6 +202,12 @@ var enableFeature = function(feature, element)
 	}
 }
 
+var enableFeatures = function()
+{
+	enableFeature("gist", $("gist"))
+	enableFeature("gravatar", $("gravatar"))
+}
+
 var loadExtendedCommit = function(commit)
 {
 	if (commit.author_email)
@@ -212,4 +223,5 @@ var loadExtendedCommit = function(commit)
 
 	hideNotification();
 	setGravatar(commit.author_email, $("gravatar"));
+	enableFeatures();
 }
