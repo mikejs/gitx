@@ -225,3 +225,9 @@ var loadExtendedCommit = function(commit)
 	setGravatar(commit.author_email, $("gravatar"));
 	enableFeatures();
 }
+
+var preferencesChanged = function()
+{
+	setGravatar(commit.author_email, $("gravatar"));
+	enableFeatures();
+}
