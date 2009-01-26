@@ -10,8 +10,9 @@
 #import "PBGitCommit.h"
 #import "PBGitTree.h"
 #import "PBViewController.h"
+#import "PBGitHistoryWatcher.h"
 
-@interface PBGitHistoryController : PBViewController {
+@interface PBGitHistoryController : PBViewController <PBGitHistoryWatcherDelegate> {
 	IBOutlet NSSearchField *searchField;
 	IBOutlet NSArrayController* commitController;
 	IBOutlet NSTreeController* treeController;
@@ -25,6 +26,8 @@
 	PBGitCommit* webCommit;
 	PBGitCommit* rawCommit;
 	PBGitCommit* realCommit;
+    
+    PBGitHistoryWatcher *watcher;
 	
 }
 

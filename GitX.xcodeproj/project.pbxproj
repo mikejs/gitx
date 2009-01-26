@@ -17,6 +17,8 @@
 		47DBDBCA0E95016F00671A1E /* PBNSURLPathUserDefaultsTransfomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DBDBC90E95016F00671A1E /* PBNSURLPathUserDefaultsTransfomer.m */; };
 		770B37ED0679A11B001EADE2 /* GitTest_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* GitTest_DataModel.xcdatamodel */; };
 		77C8280E06725ACE000B614F /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* ApplicationController.m */; };
+		79E1F1DD0F2E630C00FE1516 /* PBGitHistoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E1F1DC0F2E630C00FE1516 /* PBGitHistoryWatcher.m */; };
+		79E1F22E0F2E68F100FE1516 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E1F22D0F2E68F100FE1516 /* CoreServices.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -150,6 +152,9 @@
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* ApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationController.m; sourceTree = "<group>"; };
+		79E1F1DB0F2E630C00FE1516 /* PBGitHistoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBGitHistoryWatcher.h; sourceTree = "<group>"; };
+		79E1F1DC0F2E630C00FE1516 /* PBGitHistoryWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBGitHistoryWatcher.m; sourceTree = "<group>"; };
+		79E1F22D0F2E68F100FE1516 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* GitX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		911111E10E58BD5A00BF76B4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/RepositoryWindow.xib; sourceTree = "<group>"; };
@@ -275,6 +280,7 @@
 				F580E6AE0E733276009E2D3F /* Sparkle.framework in Frameworks */,
 				F5E4DBFB0EAB58D90013FAFC /* SystemConfiguration.framework in Frameworks */,
 				F5C580E50EDA250900995434 /* libgit2.a in Frameworks */,
+				79E1F22E0F2E68F100FE1516 /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +313,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79E1F22D0F2E68F100FE1516 /* CoreServices.framework */,
 				F5E4DBFA0EAB58D90013FAFC /* SystemConfiguration.framework */,
 				F580E6AD0E733276009E2D3F /* Sparkle.framework */,
 				F56526230E03D85900F03B52 /* WebKit.framework */,
@@ -603,6 +610,8 @@
 				F52BCE060E84211300AA3741 /* PBGitHistoryController.m */,
 				F574A2830EAE2EAC003F2CB1 /* PBRefController.h */,
 				F574A2840EAE2EAC003F2CB1 /* PBRefController.m */,
+				79E1F1DB0F2E630C00FE1516 /* PBGitHistoryWatcher.h */,
+				79E1F1DC0F2E630C00FE1516 /* PBGitHistoryWatcher.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -806,6 +815,7 @@
 				47DBDB580E94EDE700671A1E /* DBPrefsWindowController.m in Sources */,
 				47DBDB670E94EE8B00671A1E /* PBPrefsWindowController.m in Sources */,
 				47DBDBCA0E95016F00671A1E /* PBNSURLPathUserDefaultsTransfomer.m in Sources */,
+				79E1F1DD0F2E630C00FE1516 /* PBGitHistoryWatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 @interface PBGitConfig : NSObject {
 	NSString *repositoryPath;
 }
+@property (readonly) NSString *repositoryPath;
 
 - init;
 - initWithRepository:(NSString *)path;

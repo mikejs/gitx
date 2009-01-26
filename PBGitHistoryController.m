@@ -40,8 +40,18 @@
 	// It can't be sorted by default (because it's bound to a PBGitCommit)
 	[[commitList tableColumnWithIdentifier:@"subject"] setSortDescriptorPrototype:[[NSSortDescriptor alloc] initWithKey:@"subject" ascending:YES]];
 
+    // startup watcher
+    watcher = [[PBGitHistoryWatcher alloc] initWithPath:repository.config.repositoryPath];
+    watcher.delegate = self;
+    
 	[super awakeFromNib];
 }
+
+- (void) historyWatcher:(PBGitHistoryWatcher *)watcher filesWereModified:(NSArray *)paths {
+    // referesh if the .git repository is modified
+    [self refresh:NULL];
+}
+
 
 - (void) updateKeys
 {

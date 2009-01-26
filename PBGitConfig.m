@@ -11,6 +11,8 @@
 
 @implementation PBGitConfig
 
+@synthesize repositoryPath;
+
 - init
 {
 	repositoryPath = nil;
